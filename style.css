@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap");
+
+* {
+	box-sizing: border-box;
+	font-family: "Carrois Gothic SC", system-ui;
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+	background-color: #fffafa;
+}
+
+.container {
+	text-align: center;
+	padding: 40px;
+	background-color: black;
+}
+
+.container h1 {
+	color: #fffafa;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch; /* Faz com que as colunas tenham a mesma altura */
+	justify-content: center;
+	padding: 10vh 10vh 10vh 10vh;
+}
+
+.column {
+	flex: 25%;
+	max-width: 25%;
+	min-height: 300px; /* Define uma altura mínima para garantir que as colunas se expandam */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Garante que o conteúdo se expanda em cima e embaixo */
+}
+
+.photo {
+	height: auto;
+	overflow: hidden;
+	border: 15px solid #fffafa;
+	flex-grow: 1; /* Permite que o conteúdo da imagem cresça */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Cobre a área da imagem sem distorção */
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	transition: transform 0.5s ease;
+}
+
+.photo:hover img {
+	transform: scale(1.2);
+}
+
+.final-text {
+	justify-content: center;
+	padding: 50px;
+	background-color: black;
+}
+
+.txt-animado {
+	text-align: center;
+	color: #fffafa;
+	font-weight: 400;
+	padding: 5vh 5vw; /* Reduz o padding horizontal */
+	font-size: 1vw;
+}
+
+.txt-animado span {
+	position: relative;
+	font-size: inherit;
+}
+
+.txt-animado span::before {
+	content: "";
+	color: #8b0000;
+	animation: palavras 30s infinite;
+}
+
+.txt-animado span::after {
+	content: "";
+	position: absolute;
+	height: 1.5em;
+	border-left: 2px solid #8b0000;
+	right: -5px;
+	animation: cursor 0.7s infinite, digita 30s steps(15) infinite;
+	width: calc(100% + 6px);
+	background-color: black;
+}
+
+@keyframes digita {
+	10%,
+	15%,
+	30%,
+	35%,
+	50%,
+	55%,
+	70%,
+	75%,
+	90%,
+	95% {
+		width: 0;
+	}
+	5%,
+	20%,
+	25%,
+	40%,
+	45%,
+	60%,
+	65%,
+	80%,
+	85% {
+		width: calc(100% + 6px);
+	}
+}
+
+@keyframes cursor {
+	0% {
+		border-left: 2px solid black;
+	}
+}
+
+@keyframes palavras {
+	0%,
+	20% {
+		content: "eu te amo";
+	}
+	21%,
+	40% {
+		content: "você é a mulher da minha vida";
+	}
+	41%,
+	60% {
+		content: "eu não consigo imaginar minha vida sem você";
+	}
+	61%,
+	80% {
+		content: "meu mundo é perfeito com você";
+	}
+	81%,
+	100% {
+		content: "cada momento ao seu lado é especial pra mim";
+	}
+}
+
+.final-text h3 {
+	padding-left: 20vw; /* Unidades relativas à largura da viewport */
+	padding-right: 20vw;
+	text-align: justify;
+	color: #fffafa;
+}
+
+.final-text h4 {
+	text-align: center;
+	padding-left: 20vw; /* Unidades relativas à largura da viewport */
+	padding-right: 20vw;
+	color: #fffafa;
+}
+
+@media screen and (max-width: 800px) {
+	.column {
+		flex: 50%;
+		max-width: 50%;
+	}
+	.final-text h3,
+	.final-text h4 {
+		padding-left: 5vw; /* Reduz o padding em telas menores */
+		padding-right: 5vw;
+	}
+	.txt-animado {
+		font-size: 1.5vw; /* Ajuste para telas menores */
+		padding: 1vh 1vw;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.column {
+		flex: 100%;
+		max-width: 100%;
+	}
+	.txt-animado {
+		font-size: 1.5vw; /* Tamanho da fonte ajustado para telas pequenas */
+		padding: 0.5vh 0.5vw;
+	}
+	.final-text h3,
+	.final-text h4 {
+		padding-left: 3vw; /* Reduz ainda mais o padding para smartphones */
+		padding-right: 3vw;
+	}
+}
