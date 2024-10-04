@@ -191,7 +191,7 @@ body {
 		max-width: 100%;
 	}
 	.txt-animado {
-		font-size: 1.5vw; /* Tamanho da fonte ajustado para telas pequenas */
+		font-size: 1.4vw; /* Tamanho da fonte ajustado para telas pequenas */
 		padding: 0.5vh 0.5vw;
 	}
 	.final-text h3,
